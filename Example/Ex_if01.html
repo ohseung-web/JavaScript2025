@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제</title>
+</head>
+<body>
+    <h1>javaScript if</h1>
+    <input type="text" id="chky">
+    <button type="button" onclick="checkY()">확인</button> 
+    <p id="output"></p>
+
+    <script>
+        // 1. function 생성한다.
+        // 2. document를 변수로 생성한다.
+        // 3. if문 작성
+        function checkY(){
+            // value 속성은 input안의 입력한 값을 읽어들인다.
+             let chky = document.getElementById('chky').value;
+             let output = document.getElementById('output');
+
+            //  if문 시작
+            if(chky=='y' || chky=='Y'){
+                output.innerHTML = '예';
+            }else{
+                output.innerHTML='아니오';
+            }
+        }
+        // 0~30 => 0보다 크거나 같으면서 30보다 작거나 같다
+        // if(0>tem<=30)
+        // if(tem>0 && tem<30)
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연산연습</title>
+</head>
+<body>
+    <h1>자바스크립트 실습 문제</h1>
+    <input type="number" id="a">    
+    <input type="number" id="b">
+    <button type="button" onclick="calc()">계산</button>    
+    <p id="output3"></p>
+     
+    <script>
+        function calc(){
+            let n1 = Number(document.getElementById('a').value);
+            let n2 = Number(document.getElementById('b').value);
+            let res = document.getElementById('output3');
+            // NaN => Not a Number => 숫자가 아니다.
+            res.innerHTML = `n1>n2? ${n1>n2} n1==n2?${n1==n2}`;
+            console.log(res.innerHTML);
+        }
+        
+
+    </script>
+
+     
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>직원 근무시간 급여 계산</title>
+</head>
+<body>
+    <h1>직원 근무시간 급여 계산</h1>
+    <label>근무 시간 입력 :</label><input type="number" id="hourNum">
+    <button type="button" onclick="payCalc()">급여 계산</button>
+    <br>
+    <br>
+    급여 : <p id="pay"></p>
+    근무 메시지 : <p id="msg"></p>
+    급여 상태 : <p id="status"></p>
+
+    <script>
+        // 전역변수 : 전지역에서 사용하는 변수
+            // const basePay =10000;
+            // let payTotal = 0; //초기화
+            // let realPay = 0; // 실급여
+            // let overTime =0; //숫자를 입력할 변수 이기때문에
+            // let overPay = 0; //초과급여
+
+        function payCalc(){
+            
+            // document 변수 지정
+            let hours= Number(document.getElementById('hourNum').value);
+            // pay 
+            let pay = document.getElementById('pay');
+            let msg = document.getElementById('msg');
+            let status = document.getElementById('status');
+
+            // 초과 근무 수당
+            // 근무시간 8 초과하면 수당 1.5
+            // 기본급 10000
+            // 데이터 종류 => a=6(숫자), a="a1"(문자변수)
+             // 지역변수 : 지금현재 function안에서만 사용 가능
+            const basePay =10000;
+            let payTotal = 0; //초기화
+            let realPay = 0; // 실급여
+            let overTime =0; //숫자를 입력할 변수 이기때문에
+            let overPay = 0; //초과급여
+
+            if(hours > 8){
+                    realPay = 8 * basePay; //기본급
+                // 기본시간 8시간 그이외는 초과근무시간
+                    overTime = hours - 8; //초과시간
+                    overPay = overTime * basePay * 1.5;
+                    payTotal = realPay + overPay; 
+                    pay.innerHTML = payTotal;
+            }else{
+                realPay = hours * basePay;
+                pay.innerHTML = realPay;
+            }
+
+            // 근무 메시지
+            // switch(true)
+            
+            let mssg = ""; //초기화 문자를 넣을 변수이기때문에
+            switch(true){
+                case (hours == 0):
+                mssg = "출근하지 않았습니다."
+                break;    
+                case (hours >=1 && hours <=8) :
+                mssg = "정상근무"
+                break;    
+                case (hours > 8):
+                mssg = "초과근무"
+                break;    
+            }
+            
+            msg.innerHTML = mssg;
+            // 근무 상태
+            // 3항연산자 이용 
+            status.innerHTML = hours==0?'무급':'급여 있음';
+
+        }
+    </script>
+</body>
+</html>

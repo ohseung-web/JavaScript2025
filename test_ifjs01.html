@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 조건문</title>
+</head>
+<body>
+    <!-- 짝수/홀수 출력 => 콘솔 -->
+     <h1>javaScript if</h1>
+     <script>
+        let num = 3;
+        if(num % 2 == 0){
+            // 조건이 만족하는 true
+            console.log("num"+num);
+        }else{
+            // 조건을 만족하지 않을 때 false
+            console.log(`num : ${num}`)
+        }
+
+        // 나이가 20이상이면 성인입니다. 아니면 미성년자 입니다.
+        // if ~ else 
+        // 콘솔 출력
+        let age = 20;
+        // 재할당
+        age=15;
+        
+        if(age >= 20)console.log('성인입니다.');
+        else console.log('미성년자');
+
+        // 다중 if => 조건이 2개 이상인 경우
+        // score가 90 이상 a, 80이상 b, 70이상 c, 60이상 d
+        // 그 이외의 모든 값은 f
+        let score = 70;
+        if(score >= 90){
+            console.log('A');
+        }else if(score >= 80){
+            console.log('B');
+        }else if(score>= 70){
+            console.log('C');
+        }else if(score>=60){
+            console.log('D');
+        }else{
+            // 위 조건을 모두 만족하지 않는 나머지 전부
+            console.log('F');
+        }
+
+        // if(score >= 90)console.log('A');
+        // if(score >= 80)console.log('b');
+        // if(score >= 70)console.log('c');
+        // if(score >= 60)console.log('d');
+
+        // 숫자 3개 중 최대값 찾기
+        // a=15, b=5, c=-1
+        let a=1;
+        let b=10;
+        let c=18;
+        // 임시 변수 => a값을 상수로 사용
+        let max = a;
+        if(b > max){
+            max = b;
+            console.log(`${max}`)
+        }
+        if(c > max){
+            max = c;
+            console.log(`${max}`)
+        }
+        console.log(`최대값 : ${max}`);
+
+        // id='admin'이면서 pw='admin1234'이면 
+        // 로그인성공, 아니면 로그인 실패
+        const id='admin';
+        const pw='admin1234';
+        // 이면서 = and = &&
+        if(id=='admin' && pw=='admin1234'){
+            console.log('로그인 성공');
+        }else{
+            console.log('로그인 실패');
+        }
+
+        // 숫자 비교
+        // x=5, y=7 => x 가 y보다 크면 x
+        // y가 x보다 크면 y
+        // x와 y가 같으면 같다
+        let x=3, y=3;
+        if(x>y)console.log(x);
+        if(y>x)console.log(y);
+        if(x == y)console.log('같다.');
+
+        // 양수/음수/0 출력하기
+        // k=-1;
+        let k= -1;
+        if(k==0)console.log(0);
+        if(k > 0)console.log('양수');
+        if(k < 0)console.log('음수');
+     </script>
+</body>
+</html>

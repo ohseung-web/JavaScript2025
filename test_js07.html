@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연산연습</title>
+</head>
+<body>
+    <h1>자바스크립트 실습 문제</h1>
+    <input type="number" id="score" placeholder="점수입력">    
+    <button type="button" onclick="checkGrade()">등급 확인</button>    
+    <p id="output8"></p>
+     
+    <script>
+        function checkGrade(){
+            let score = Number(document.getElementById('score').value);
+            let res = document.getElementById('output8');
+            let cacl = score>=90?'A':score>=80?'B':score>=70?'C':score>=60?'D':'F';
+            res.innerHTML = cacl;
+        }
+        
+
+    </script>
+
+     
+</body>
+</html>

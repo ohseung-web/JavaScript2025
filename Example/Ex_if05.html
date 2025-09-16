@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if 실습문제</title>
+</head>
+<body>
+    <h1>javaScript if</h1>
+    <input type="text" id="kok">
+    <input type="text" id="eng">
+    <input type="text" id="mat">
+    <button type="button" onclick="checkY()">확인</button> 
+    <p id="output"></p>
+
+    <script>
+        // 1. function 생성한다.
+        // 2. document를 변수로 생성한다.
+        // 3. if문 작성
+        function checkY(){
+            // value 속성은 input안의 입력한 값을 읽어들인다.
+            // input 태그를 이용해서 입력받은 값을 숫자로 변경 => Number
+             let kok = Number( document.getElementById('kok').value);
+             let eng = Number( document.getElementById('eng').value);
+             let mat = Number( document.getElementById('mat').value);
+             let output = document.getElementById('output');
+
+             console.log('여기까지 OK');
+
+            // 평균을 구해서 avg 변수에 저장
+             let avg = (kok + eng + mat)/3;
+
+            //  if문 시작
+            if(avg >= 70){
+                console.log('출력됨')
+                output.innerHTML = '합격';
+            }else{
+                console.log('출력됨2')
+                output.innerHTML='불합격';
+            }
+        }
+        // 0~30 => 0보다 크거나 같으면서 30보다 작거나 같다
+        // if(0>tem<=30)
+        // if(tem>0 && tem<30)
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연산연습</title>
+</head>
+<body>
+    <h1>자바스크립트 실습 문제</h1>
+    <input type="number" id="a">    
+    <input type="number" id="b">
+    <button type="button" onclick="calc()">계산</button>    
+    <p id="output3"></p>
+
+    <!-- script -->
+     <script>
+        // 1. 함수를 생성한다. => 함수이름 function calc(){}
+        function calc(){
+            // 2.각 input의 document를 변수로 정의해서 저장
+            let a = Number(document.getElementById('a').value);
+            let b = Number(document.getElementById('b').value);
+            // 3. 출력할 p태그 document 변수 지정
+            let res = document.getElementById('output3');
+            // 4. 연산 + - * /
+            // 구조적으로 개발하기를 원하면 변수로 모두 정의한다.
+            // 코드의 구조화란 => 코드의 간략화이다.
+            let add = a + b;
+            let diff = a - b;
+            let mul = a * b;
+            let did = a / b;
+            res.innerText = `합: ${add}, 차: ${diff}, 곱: ${mul},나누기 ${did}`;
+        }
+
+        // && : and(그리고~) 조건을 모두 만족할 때 true, false
+        // || : or(또는, ~이거나,) 조건중 하나라도 만족할 때 true, false
+        // ! :  not(true) => 조건의 부정이므로 false가 출력됨
+        // 엑셀이 40점이상이면서 액세스 40점 이상이면서 평균이 60점 이상이면
+        // 컴활 '합격', 아니면 '불합격'이다.
+
+        let num = 0;
+        let num2 = 60;
+        let avg = (num+num2)/2;
+        num>=40 && num2>=40 && avg>=60 ? '합격' : '불합격';
+        console.log(`avg:${avg},${num>=40 && num2>=40 && avg>=60} `)
+     </script>
+
+     
+</body>
+</html>

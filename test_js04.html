@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연산연습</title>
+</head>
+<body>
+    <h1>자바스크립트 실습 문제</h1>
+        <!-- onclick =>버튼을 클릭해라 -->
+        <!-- proble() => 함수이름 -->
+         <!-- 버튼을 클릭하면 proble()함수를 실행하라 -->
+    <button type="button" onclick="problem4()">
+        문제4 : 조건문
+    </button> 
+       <!-- 결과 화면 출력 하는 곳  -->
+     <p id="p4"></p>   
+
+     <input id="inputext" type="number" placeholder="숫자입력">
+     <button type="button" onclick="inputpro()">확인</button>
+     <p id="input4"></p>
+
+     <!-- javaScript 영역 : <script>~</script> -->
+      <script>
+        function problem4(){
+           let pri = document.getElementById('p4');
+           let num = 5;
+           let res = num % 2 == 0 ? '짝수':'홀수';
+           console.log(`${res}`);
+           pri.innerText = res;
+           
+        }
+
+        
+    //    <input>태그에 입력된 모든 값은 문자 데이터형식임을 잊지말자.
+    //    <input>태그에 입력된 모든 값을 읽어 오려면 반드시 .value 메서드를 사용해야 한다.
+        function inputpro(){
+            let inputtext = document.getElementById('input4');
+            // Number( ) => 괄호안의 인수를 숫자로 변경하는 함수
+            let inputtext2 = Number( document.getElementById('inputext').value);
+            console.log(`input의 입력 값 ${inputtext2}`);
+            
+            inputtext.innerHTML = inputtext2 + 5;
+            console.log(`input의 값 더하기 5 : ${inputtext.innerHTML}`);
+            
+
+        }
+      </script>
+</body>
+</html>

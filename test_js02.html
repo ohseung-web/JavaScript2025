@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 연산연습</title>
+</head>
+<body>
+    <h1>자바스크립트 실습 문제</h1>
+        <!-- onclick =>버튼을 클릭해라 -->
+        <!-- proble() => 함수이름 -->
+         <!-- 버튼을 클릭하면 proble()함수를 실행하라 -->
+    <button type="button" onclick="problem2()">
+        문제1 : 두 수 더하기
+    </button> 
+       <!-- 결과 화면 출력 하는 곳  -->
+     <p id="p2"></p>   
+     <!-- javaScript 영역 : <script>~</script> -->
+      <script>
+        function problem2(){
+            // id p1이라는 이름을 가진 태그를 pri 변수 저장
+            let pri = document.getElementById('p2');
+            let num1= 6;
+            let num3 = 9;
+            // 값의 error의 존재 유무 파악하기 위한 디버깅 용
+            console.log(`num1:${num1}, num2:${num3}`); //콘솔창 출력
+            pri.innerHTML = `합계: ${num1 + num2}`;
+        }
+       
+        // %의 의미 => 나머지 구하는 기호
+        let a=25;
+        let b=2;
+        console.log(`a를 b로 나눈 나머지 :${a % b}`);
+        console.log(`a를 b로 나눈 몫 :${a / b}`);
+        //3항연산자
+        // 조건 ? true일 때 값 : false일 때 값
+        // 조건 => 비교대상 비교연산자 비교값
+        // 국어가 90이상이면 '수', 아니면 '재수강'
+        // 조건 : 국어 >= 90
+        // 국어 >= 90 ? '수':'재수강'
+        // 결과 값 true = 1, false = 0
+        let eng = 75;
+        eng >= 90 ? '수' : '재수강';
+        console.log(`${eng>=90?'수':'재수강'}`);
+
+        // 다중 3항 연산자
+        // 3항 연산자 사용이유 => if대용, 식이 간편
+        // eng가 90이상이면 '수', 아니면 eng이 80이상이면
+        // '우', 그 이외는 '재수강'
+        // if eng>= 90 then 
+        // result = '수'
+        // elseif eng = 80 then
+        // result ='우'
+        // else
+        // result ="재수강"
+        // end if
+        let result = eng>=90?'수':eng>=80?'우':'재수강';
+        console.log(`${result}`);
+      </script>
+</body>
+</html>

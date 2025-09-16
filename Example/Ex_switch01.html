@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+<body>
+    <button type="button" onclick="dayfunction()">요일출력</button>
+    <input type="number" id="weekday">
+    <p id="output"></p>
+
+    <script>
+        function dayfunction(){
+            let weekday= Number(document.getElementById('weekday').value);
+            let output = document.getElementById('output');
+            
+            // switch에서 true사용시 반드시
+            // case 조건식 입력이 원칙
+            switch(months){
+                case 1:
+                case 2:
+                case 3:        
+                 console.log("여기까지 오케");
+                 output.innerHTML='일요일';
+                 break;   
+                case weekday==2:
+                 output.innerHTML='월요일';
+                 break;   
+                case weekday==3:
+                 output.innerHTML='화요일';
+                 break;   
+                case weekday==4:
+                 output.innerHTML='수요일';
+                 break;   
+                case weekday==5:
+                 output.innerHTML='목요일';
+                 break;   
+                case weekday==6:
+                 output.innerHTML='금요일';
+                 break;   
+                case weekday==7:
+                 output.innerHTML='토요일';
+                 break;   
+            }
+
+            // 변수 : 문자 fru="바나나"
+            // 변수 : 숫자 weeks = 1
+            switch(weeks){
+                case "바나나":
+                    console.log("여기까지 오케");
+                 output.innerHTML='일요일';
+                 break;   
+                case weekday==2:
+                 output.innerHTML='월요일';
+                 break;   
+                case weekday==3:
+                 output.innerHTML='화요일';
+                 break;   
+                case weekday==4:
+                 output.innerHTML='수요일';
+                 break;   
+                case weekday==5:
+                 output.innerHTML='목요일';
+                 break;   
+                case weekday==6:
+                 output.innerHTML='금요일';
+                 break;   
+                case weekday==7:
+                 output.innerHTML='토요일';
+                 break;   
+            }
+        }
+    </script>
+ </body>
+</html>
