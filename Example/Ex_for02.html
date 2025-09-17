@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 연습문제</title>
+</head>
+<body>
+    <h1>문제: 1부터 10까지 출력</h1>
+    <input type="number" id="num">
+    <button type="button" onclick="numClick()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        // 전역변수 : 지금현재 스크립트안에 모든 곳에 사용할 수 있는 변수
+        let output= document.getElementById('output');
+        let result = '';//현재 입력할 값이 텍스트이기 때문에 텍스트로 초기화 함
+
+        function numClick(){
+            let result = 0;//결과 값 담을 변수
+            let sum = 0; //합계를 누적할 변수
+            // 1부터 n까지의(input 입력 받는 값)
+            let num = Number(document.getElementById('num').value) 
+            
+
+            for(let i=1; i<=num; i++){
+                // 합계 누적공식
+                sum = sum + i;
+            }
+            result = `1부터 ${num}까지의 합계: ${sum}`;
+            output.innerHTML = result;
+        }
+        
+       
+        // 다중 for문
+        // for ~ for 존재 함
+        // i=1 일 때 => j=1
+        // i=2 일 때 => j=1~2
+        // i=3 일 때 => j=1~3
+        // i=4 일 때 => j=1~4
+        // i=5 일 때 => j=1~5
+        for(let i=1; i<=5; i++){ //바깥 루프 => 가로 줄 3번
+            for(let j=1; j<=i; j++){ //안쪽 루프 = 세로 
+                // 출력할 * 누적해야 함
+                result = result + '*';
+            }
+            // 줄바꿈을 위해 <br/>태그를 누적
+            result = result + '<br/>';
+        }
+        // result 값 출력
+        output.innerHTML = result;
+        
+    </script>
+</body>
+</html>

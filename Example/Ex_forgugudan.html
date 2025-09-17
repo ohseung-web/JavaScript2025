@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 연습문제</title>
+</head>
+<body>
+    <h1>문제: 1부터 10까지 출력</h1>
+    <input type="number" id="num">
+    <button type="button" onclick="numClick()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        // 전역변수 : 지금현재 스크립트안에 모든 곳에 사용할 수 있는 변수
+        let output= document.getElementById('output');
+        let result = '';//현재 입력할 값이 텍스트이기 때문에 텍스트로 초기화 함
+        // let danName = ''
+    //    2단 ~ 9단 => 바깥 for
+    //    2x1 ~ 2x9 => 안쪽 for
+
+        // i=2 -> j는 1부터 9까 result 출력
+        // 다시 바깥 for문으로 증감으로 이동 i = 3
+        // 조건 i<=9 만족하면 다시 안쪽 for문 j=1 ~ 9
+        for(let i=2; i<=9; i++){ //바깥 루프 => 가로 줄 3번
+              result = result + i + '단<br/>';
+            for(let j=1; j<=9; j++){ //안쪽 루프 = 세로 
+                // 2 x 1 = 2 형태의 출력
+                result = result + i + 'x' + j + '=' + i*j + '<br/>';
+            }
+            // 단과 단사의 줄 바꿈
+            result = result + '<br/>';
+        }
+        // result 값 출력
+        output.innerHTML = result;
+        
+    </script>
+</body>
+</html>

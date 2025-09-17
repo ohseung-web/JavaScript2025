@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 연습문제</title>
+</head>
+<body>
+    <h1>문제: 1부터 10까지 출력</h1>
+    <p id="output"></p>
+
+    <script>
+        let output= document.getElementById('output');
+        let n =1;
+        // 결과를 담을 변수 초기화
+        let result = 0;
+        // n =1 현재 while 만족
+        // 루프2 n = 2
+        // 루프3 n = 3
+        // 루프4 n = 4
+        // 루프5 n = 5
+        // n = 11이 되면 루프 종료
+        for(let i=1; i<=10; i++){
+            
+            result = result + n + ' ';
+            // 0 + 1 + ' ' + 2 + ''+ 3 + ''+4+''+5+''
+            n++;
+            // n = 1+1
+            // n = 1+1+1;
+            // n = 1+1+1+1;
+            // n = 1+1+1+1+1;
+        }
+        // n = 11되면 출력
+        output.innerHTML = result;
+    </script>
+</body>
+</html>
