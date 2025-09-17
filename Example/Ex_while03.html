@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while 연습문제</title>
+</head>
+<body>
+    <h1>문제: 사용자 입력횟수 만큼 Hello 출력</h1>
+    <input type="number" id="cnt">
+    <button type="button" onclick="cntClick()">실행</button>
+    <p id="output"></p>
+
+    <script>
+        function cntClick(){
+            let cnt = Number(document.getElementById('cnt').value);
+            let output = document.getElementById('output');
+
+            // 입력할 숫자를 담을 변수 초기화
+            let n = 1;
+            let result = ''; //결과값 
+            // 문자데이터 출력 하기 위해 ''으로 초기화 함
+
+            // 반복할 실행문 while
+            // cnt가 input입력받는 값을 담은 변수
+            while(n<=cnt){
+                result = result + "Hello<br/>";
+                // n을 누적하는 공식
+                n++;
+            }
+            output.innerHTML = result;
+        }
+    </script>
+</body>
+</html>
