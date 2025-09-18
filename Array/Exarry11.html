@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+    <label>점수: 장바구니 가격 배열 입력(예: 12000,5000,10000)</label>
+    <input type="text" id="cartInput">
+    <button type="button" onclick="CartClick()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        // 주어진 기본 배열
+        let Cart=[];
+
+        function CartClick(){
+        // document로 변수화 하기 
+        let cartInput= document.getElementById('cartInput').value;
+        let output = document.getElementById('output');
+        // split(','),map(Number) 
+        // => input입력된 값을 숫자배열로 다시 생성함
+        // 비교를 위해 
+        Cart = cartInput.split(',').map(Number);
+        let result=''; //결과값 담을 변수
+        
+        for(let i=0; i<=Cart.length-1; i++){
+            // switch ~ case = 1, case = "출석" :
+            //  다른관계연산자 사용불가(>,<.>=,<=,!-...)
+            // switch(true) ~ case >= 10000
+            // trim() => 공백이라는 문자를 제거하는 함수
+            switch(true){
+                case Cart[i] >= 10000:
+                   result += Cart[i] + ':고가, ';
+                break;
+                case Cart[i] >= 5000 :
+                    result += Cart[i] + ':중저가, ';
+                break;
+                // 그이외의 나머지 다
+                default:
+                    result += Cart[i]+':저가, ';
+                    break;
+            }
+        }
+        output.innerHTML = result;
+    } 
+    </script>   
+</body>
+</html>

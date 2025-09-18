@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+    <label>점수: 배열 입력(예:12,7,5,20,33,18)</label>
+    <input type="text" id="evenoddInput">
+    <button type="button" onclick="evenOdd()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        // 주어진 기본 배열
+        // let scores=[95,67,80,55,100,72];
+        let numbers=[];
+
+        function evenOdd(){
+        // document로 변수화 하기 
+        let evenOddInput= document.getElementById('evenoddInput').value;
+        let output = document.getElementById('output');
+        numbers = evenOddInput.split(',').map(Number);
+        // let result=''; // 결과값을 담는 변수
+        let even='';
+        let odd='';
+
+        // 반복문
+         for(let i=0; i<=numbers.length-1;i++){
+             if(numbers[i] % 2 == 0){
+                even += numbers[i] + ',';
+             }else{
+                odd += numbers[i] + ',';
+             }
+         }
+        //  배열이름.slice(start arry, end array) => end array-1까지
+        //  slice(start array, end array)=> 양수 : 왼 -> 오
+        //  slice(start array, end array)=> 음수 : 오 -> 왼
+
+         even = even.slice(0,-1);
+         output.innerHTML = "짝수:"+even + "홀수:"+odd;
+    } 
+    </script>   
+</body>
+</html>

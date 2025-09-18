@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 심화학습</title>
+</head>
+<body>
+    <label>점수: 배열 입력(예:출석,지각,결석)</label>
+    <input type="text" id="evenoddInput">
+    <button type="button" onclick="attend()">결과 확인</button>
+    <p id="output"></p>
+
+    <script>
+        // 주어진 기본 배열
+        // let scores=[95,67,80,55,100,72];
+        let attends=[];
+
+        function attend(){
+        // document로 변수화 하기 
+        let evenOddInput= document.getElementById('evenoddInput').value;
+        let output = document.getElementById('output');
+        // 문자로된 데이트를 비교하기때문에 map(Number)이용하여 숫자로 변경 필요없음
+        // map(Number) => attends=[1,23,3,4] 새로 생성됨
+        attends = evenOddInput.split(',');//-> attends=['출석','결석','지각']
+        let result=''; // 결과값을 담는 변수
+
+        for(let i=0; i<=attends.length-1;i++){
+            // 자바스크립트는 같다 == 정확한 비교가 어려움
+            // === 정확한 메모리 값 비교 
+            // trim() => 왼쪽, 오른쪽 공백을 제거하는 함수
+            if(attends[i].trim() === '출석'){
+                result += 'O,';
+            }else if(attends[i].trim() === '지각'){
+                result += '△,';
+            }else {
+                 result += 'X,';
+            }
+        }
+        // 출력은 for문 바깥쪽 
+        
+        output.innerHTML = result;
+
+        
+    } 
+    </script>   
+</body>
+</html>
