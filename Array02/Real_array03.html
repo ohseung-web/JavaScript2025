@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+</head>
+<body>
+    <p id="output"></p>
+    <script>
+        let output = document.getElementById('output');
+        // 배열 => 빈 배열입니다.
+        let calander = Array.from(Array(6),() => new Array(7));
+        let weekdays =['일','월','화','수','목','금','토'];
+        let result ='<table border="1">'
+        
+       // 시작일, 끝일 변수로 지정
+       let day = 1;
+       let lastday = 31;
+
+    //  weekdays 출력
+       result += '<tr>'
+       for(let i=0; i<weekdays.length; i++){
+           result += '<th>' + weekdays[i]+ '</th>'
+       } 
+       result += '</tr>'
+
+    //  날짜 채우기
+      for(let i=0; i<calander.length; i++){
+          result += '<tr>' //행
+          // 조건지정 후 break; => 여기 루프 빠져나옴   
+          for(let j=0; j<calander[i].length; j++){
+               // 시작일이 끝일보다 작거나 같냐 ?
+               if(day <= lastday){
+                   calander[i][j] = day;
+                   result += '<td>' + day + '</td>'
+                   day++;
+               }else{
+                 result += '<td></td>'
+               }
+          }
+          result += '</tr>'
+        //  빈 줄이 생기는 문제 해결
+          if(day > lastday) break; //break : 멈추고 빠져나와 
+      }
+      
+      result += '</table>'
+      output.innerHTML = result;
+    </script>
+</body>
+</html>

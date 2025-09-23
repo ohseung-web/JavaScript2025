@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date() 객체 연습 문제</title>
+</head>
+<body>
+    <button onclick="ex01()">확인</button>
+    <p id="output1"></p>
+
+    <script>
+    //   4. 특정 날짜까지 남은 일수 계산
+     // 문제: 내 생일까지 남은 일수를 계산하여 출력하세요.
+     // 예: "생일까지 120일 남았습니다."
+    //  생일 : 2025-9-30
+    //  오늘날짜 : 2025-9-23
+    // 오늘날짜 - 생일 
+
+    function ex01(){
+        let output1 = document.getElementById('output1');
+        let today = new Date();
+        let birthday = new Date('2026/10/30')
+        today.setHours(0,0,0,0); //시간을 초기화
+        birthday.setHours(0,0,0,0); //시간을 초기화
+        let days1 = ((birthday - today)/86400000).toFixed(0);
+        // getTime()이용하여 시간까지 빼기한 결과
+        let days2 = ((birthday.getTime() - today.getTime())/86400000).toFixed(0);
+        console.log(today);
+        console.log(birthday);
+        console.log(days1);
+        console.log(days2);
+        // sethour(0,0,0,0)
+        // Tue Sep 23 2025 14:25:57 GMT+0900 (한국 표준시)
+        // Tue Sep 30 2025 00:00:00 GMT+0900 (한국 표준시)
+    }
+
+    </script>
+</body>
+</html>
