@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 기초문제</title>
+</head>
+<body>
+    <!-- 태그 작성 : 1 ~ 4번 문제 -->
+     <div class="box">1</div>
+     <div class="box">2</div>
+     <div class="box">3</div>
+
+     <p class="p2">one</p>
+     <p class="p2">two</p>
+
+     <ul>
+        <li>10</li>
+        <li>20</li>
+        <li>30</li>
+     </ul>
+
+     <script>
+    //   box 3번 루프 => for
+    //  forEach()이용한 
+    //  배열처럼 보이지만 [], 사실 배열이 아니다.
+    let box = document.getElementsByClassName('box');
+    // querySelector()=>배열로 만들기 불가능
+    // querySelectorAll() => 배열이다.
+    let box2 = document.querySelectorAll('.box')[0];
+    //  배열생성 Array.from()
+    //  let arr = Array.form(box)
+    //  arr = ['box','box','box']
+    //  box를 배열로 생성
+    //  forEach(value(box항목), index(인덱스), array(배열전체))
+    // arr.forEach((item,index) =>{
+    //     item.style.backgroundColor = 'yellow';
+    // })
+    
+    let p2 = document.querySelectorAll('.p2');
+    // 이미 배열
+    // let p2 = document.querySelectorAll('.p2')[0];
+    // console.log(`p2 : ${p2}`);
+    // for(let i=0; i<p2.length; i++){
+    //     p2[i].style.color='red';
+    // }
+    // p2.forEach((item,i)=>{
+    //     // if(i === 0){
+    //     //    p2[i].style.color = 'blue';
+    //     // }
+    //      p2[0].style.color = 'blue';
+    // })
+    // p2.style.color= 'blue';
+
+    //  <정리>
+    // <p class="p2">one</p>
+    // <p class="p2">two</p>
+    // getElementsByTagName => 배열와 유사 함
+    // 10[object HTMLCollection]
+    // forEach()문은 HTMLCollection을 가지고 있지 않음
+    // Array.from()이용하여 생성 가능
+    let p10 = document.getElementsByTagName('p') 
+    // let arr10 = Array.from(p10);
+    // console.log('p10'+p10);
+    // arr10.forEach((item,i) => {
+    //     item.style.color='red';
+    // });
+    // for문 index로 루프 돌림 허용
+    // for(let i=0; i<p10.length; i++){
+    //     p10[i].style.color='blue';
+    // }
+
+
+    // getElementsByClassName => p11[object HTMLCollection]
+    // forEach() 적용안됨
+    let p11 = document.getElementsByClassName('p2')
+    console.log('p11'+p11)
+    // for문 인덱스로 접근하고, length속성을 가지기 때문에
+    // 접근 가능
+    // for(let i=0; i<p11.length; i++){
+    //     p11[i].style.fontSize ="30px";
+    //     p11[i].style.color ="green";
+    // }  
+
+    // querySelectorAll() => p12[object NodeList]
+    // javascript 버전 ES6 이후 부터 forEach()허용 함
+    let p12 = document.querySelectorAll('.p2')
+    console.log('p12'+p12);
+    // p12.forEach((item, i) => {
+    //    item.style.color='red';
+    // })
+    for(let i=0; i<p12.length; i++){
+        p12[i].style.color='blue';
+    }
+    // 선택자 이름이 존재하지 읺을 경우 부모 자식을 태그명을
+    // 정확하게 입력
+    let firstLi = document.querySelector('ul li')
+    firstLi.textContent ='포도';
+     </script>
+</body>
+</html>

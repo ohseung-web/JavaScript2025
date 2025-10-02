@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>할 일 목록</h1>
+        <div class="input-area">
+            <input id="task" type="text" placeholder="할 일 입력" />
+            <button onclick="addTask()">추가</button>
+        </div>
+        <ul id="tasks"></ul>
+    </div>
+    <script>
+        function addTask(){
+            // input 태그의 value 메소드 없이는 값을 가져 올 수 없다
+            // input 입력받은 모든 값은 문자이다.
+            // 숫자로 변환 => Number(input 입력받은 값)
+            let task = document.getElementById('task').value.trim();
+            // tasks의 ul => li 추가 
+            // li 생성 -> 추가 -> 텍스트 노드에 접근하여 값입력
+            // tesks는 추가하는 li의 부모 요소
+            if(task === ''){
+                return;
+            }
+            // li생성
+            let addli = document.createElement('li');
+            addli.textContent = task;
+           
+            // 삭제버튼 생성
+            let delBtn = document.createElement('button')
+            delBtn.textContent ='x'
+            delBtn.className = 'delBtn'
+            // 또 따른 함수 생성 방법
+            // 변수이름.onclick = function(){}(값)
+            delBtn.onclick = function(){
+                addli.remove();
+            }
+            // 함수생성 방법
+            // delBtn.addEventListener('click',() => {
+            //     addli.remove();
+            // })
+
+            // 삭제버튼을 addli의 부모 추가
+            addli.appendChild(delBtn);
+            // 기존 ul의 부모 요소 추가
+            document.getElementById('tasks').appendChild(addli)
+            task.setFocus() // input의 커서 위치
+            task.value =''; 
+    }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+    
+</head>
+<body>
+    <!-- 13번 ~ 16번까지 -->
+     <button id="btn">클릭</button>
+     <div id="box10" class="active"></div>
+    <div id="box11" style="width: 100px; height: 100px;"></div>
+    <!-- a태그 : 요소노드, id, href : 속성노드, 네이버 :텍스트 노드 -->
+    <a id="link" href="https://naver.com">네이버</a>
+    <img id="logo" src="logo.png">
+
+     
+    <script>
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click',()=>{
+            let box10 = document.getElementById('box10')
+            box10.classList.toggle('active');
+        })
+        // a태그인 요소노드까지만 접근
+        let link = document.getElementById('link')
+        // href 속성노드 까지 접근
+        link.href = "https://google.com"
+        // 택스트 노드까지 접근
+        link.textContent ="구글"
+
+        let imgSrc = document.getElementById('logo')
+        console.log(imgSrc.src);
+    </script>
+</body>
+</html>

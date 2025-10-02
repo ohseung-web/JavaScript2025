@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassName class 이름 추가/수정</title>
+    <style>
+       .blue{
+         color:blue;
+       }
+    </style>
+</head>
+<body>
+    <h1>
+        <span>난 sapn 태그</span>
+    </h1>
+    <script>
+        // document.getElementsByTagName('h1')[0]
+        // 첫 번째 h1태그에 p태그를 추가하려고 한다.
+        let titleChang = document.getElementsByTagName('h1')[0];
+        let p01 = document.createElement('p');
+
+        p01.className = 'blue'; //<p class="blue">의미
+       // classList 여러가지 메소드를 이용하여 추가/삭제/삽입가능
+        p01.classList.add('active'); //p태그에 active 클래스명 추가
+        p01.classList.remove('active'); //p태그에 active 클래스를 삭제
+        p01.innerHTML = '난 js로 추가된 p태그야'
+        titleChang.appendChild(p01)
+    </script>
+</body>
+</html>

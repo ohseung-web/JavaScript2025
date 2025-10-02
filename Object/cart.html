@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 구현</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            margin: 30px;
+            background: #9f9f9f;
+        }
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table{
+            width: 700px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        th,td{
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th{
+            background-color: #4caf50;
+            color: white;
+        }
+        button{
+            margin: 5px;
+            padding: 5px 10px;
+            border:none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .plus{
+            background-color:#4caf50 ;
+            color:white;
+        }
+        .minus{
+            background-color: #f39c12;
+            color:white;
+        }
+        .remove{
+            background-color: #e74c3c;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h2>장바구니</h2>
+    <table id="cartTable">
+        <thead>
+        <tr>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>수량</th>
+            <th>합계</th>
+            <th>조작</th>
+        </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+    </table>
+    <div id="total">총 금액: 0원</div>
+    <script>
+        // 장바구니 구현 데이터
+        let cart =[
+            {id:1,name:'노트북',price:1000000,quantity:1},
+            {id:2,name:'마우스',price:20000,quantity:2},
+            {id:3,name:'키보드',price:50000,quantity:1},
+        ]
+
+        // 장바구니 cartBody들어가는 테이블을 구현
+        // function renderCart(){}로 작성
+        // 어떤 사건도 발생하지 않았다.
+        function renderCart(){
+            let cartBody = document.getElementById('cartBody');
+            let result ='';
+            
+            // cart배열 오브젝트의 각 항목을 테이블의 <tr>~</tr>
+            for(let i=0; i<cart.length; i++){
+
+            result += `
+              <tr>
+                <td>${cart[i].name}</td>
+                <td>${cart[i].price.toLocaleString('ko-kr')}</td>
+                <td>${cart[i].quantity}</td>
+                <td>${(cart[i].price * cart[i].quantity).toLocaleString('ko-kr')}</td>
+                <td>
+                   <button class="plus" onclick="increase(${i})">+</button>    
+                   <button class="minus" onclick="decrease(${i})">-</button>    
+                   <button class="remove" onclick="remove(${i})">x</button>    
+                </td>
+              </tr>  
+            `
+            }
+            cartBody.innerHTML = result;
+            
+        }
+        // i=0 일때 첫 번째 버튼 클릭, index번호를 실어준다.
+                    // function increase(0) => 매개변수 함수
+                    // onclick => 버튼을 클릭하는 사건이 일어나면
+                    // increase(0)함수로 가서 안에 실행문을 실행해라
+       
+        renderCart(); //호출 : 사건발생
+
+        // plus 버튼 기능
+        // 매개변수를 지정한 함수는 반드시 
+        // 함수 작성 시 매개변수 지정해야 함
+        // 함수 매겨변수 이름은 개발자가 작명한다.
+        function increase(indexNum){
+            //  +버튼 클릭 할 때마다 수량이 1씩 증가
+            //  수량의 증가는 10이되면 더이상 증가 불가 alert
+            if(cart[indexNum].quantity < 10){
+                cart[indexNum].quantity++;
+            }else{
+                alert('수량은 10개 까지만 가능합니다.')
+            }
+            renderCart();
+        }
+        // minus 버튼 기능
+        // remove 버튼 기능
+        // 배열이름.splice() 메서드 이용하여 삭제
+        // splice(시작할 인덱스번호, 제거할 요소의 개수)
+        // 메모리의 중요성 => 메모리 데이터가 쌓이면 속도가 느려져
+        // 코드를 짜서 실행하면 => 연산 => 메모리의 제어장치로 이동
+        // splice() => 내장함수 => 불러와서 사용하고 
+    </script>
+</body>
+</html>

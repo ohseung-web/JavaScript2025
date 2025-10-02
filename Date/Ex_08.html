@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 기초 연습문제</title>
+</head>
+<body>
+    <script>
+        // 이번달의 첫 번째 금요일이 몇일인지?
+        // 1. today()
+        // 2. 1일 무슨요일인지 구함
+        // 3. year, month 구함
+        let today = new Date('2025/03/1'); // 2025-09-24
+        let year = today.getFullYear(); // 2025
+        let month = today.getMonth(); // 09
+
+    //   이번달의 1일을 생성
+        
+        // let date = new Date(year,month,1);//2025-09-01
+        // 요일 찾기(0:일, 1:월, 2:화, 3:수, 4:목, 5:금, 6:토)
+        // while(date.getDay() !== 5){ //5는 금요일
+        //     // 수정 => setDate()
+        //     date.setDate(date.getDate()+1); // 5가 될때까지 1씩 증가
+        // }
+        // console.log(`이번달의 첫 번째 금요일은 ${date.getDate()}입니다.`)
+        
+        let firstDate = 0;//금요일 넣을 변수
+        // 1부터 7까지 for문
+        for(let i=1; i<=7; i++){
+            let date = new Date(year,month,i);//2025-09-01
+            //  if문 이용하여 금요일인지 확인
+            if(date.getDay() === 5){
+                firstDate = i;
+                break;         
+            }
+        }
+        console.log(`이번달의 첫 번째 금요일은 ${firstDate}입니다.`)
+    </script>
+</body>
+</html>

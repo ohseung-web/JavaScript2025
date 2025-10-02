@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="todo-container">
+      <h1>할 일 목록</h1>
+      <div class="input-area">
+        <input id="task" type="text" placeholder="할 일 입력" />
+        <button onclick="addTask()">추가</button>
+      </div>
+      <ul id="tasks"></ul>
+    </div>
+    <script>
+        function addTask(){
+            let line = document.getElementById('task').value;
+            // 이 코드는 입력값이 비어 있는 경우에 아무 작업도 
+            // 하지 않고 함수를 즉시 종료(return) 하도록 하는 유효성 검사 코드입니다.
+            if(line === ''){
+                return;
+            }
+            let li = document.createElement('li');
+            li.textContent = line;
+            document.getElementById('tasks').appendChild(li);
+            line.value = '';
+
+            // 삭제버튼 만들기
+            let delBtn = document.createElement('button');
+            delBtn.textContent = 'x';
+            delBtn.className ='del-btn'
+            delBtn.onclick = function(){
+                li.remove();
+            }
+
+            // 삭제버튼 추가
+            li.appendChild(delBtn);
+            document.getElementById('tesks').appendChild(li);
+            line.value = '';
+        }
+    </script>
+</body>
+</html>

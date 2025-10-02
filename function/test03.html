@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 문제</title>
+</head>
+<body>
+    <!-- 2번 ~ 6번 -->
+    <!-- 콘솔출력  -->
+    <!--30분 3시까지 풀기  -->
+
+    <button id="toggleBtn">이미지 토글</button>
+    <img id="myImg" src="img/pic-2.jpg" style="display: block" />
+     
+    <p id="text">색상이 바뀝니다</p>
+    <button id="colorBtn">색상 변경</button>
+
+    <script>
+    // 7번
+    let btn = document.getElementById('toggleBtn')
+    let myImg = document.getElementById('myImg')
+    btn.addEventListener('click', () => {
+        if(myImg.style.display === 'none'){
+            myImg.style.display ='block';
+        }else{
+            myImg.style.display ='none';
+        }
+    })
+
+    // 8번
+    let colors =['red','blue','green'];
+    let index = 0;
+    let colorBtn = document.getElementById('colorBtn');
+    let text = document.getElementById('text');
+    colorBtn.addEventListener('click', () =>{
+        switch(true){
+        case index === 1:
+           text.style.color =colors[1]
+           break;
+        case index === 2:
+           text.style.color =colors[2]
+           break;
+        default:
+            // console.log('여기:'+ index)
+            index = 0;
+            text.style.color = colors[0]
+            //  console.log('여기2:'+ index)
+            break;   
+       }
+        index++;
+    })
+    
+   
+
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 문제</title>
+</head>
+<body>
+    <!-- 2번 ~ 6번 -->
+    <!-- 콘솔출력  -->
+    <!--30분 3시까지 풀기  -->
+
+    <button id="btn">클릭</button>
+    <button id="btn2">클릭</button>
+    <script>
+    // 2번
+    // 상품 가격과 할인율을 받아 최종 결제 
+    // 금액을 반환하는 getDiscountPrice(price, rate) 함수를 작성 
+    
+
+
+    // 3번
+    // 버튼을 클릭할 때마다 클릭 횟수를 콘솔에 출력하는 
+    let btn = document.getElementById('btn');
+    // 횟수 = count 누적
+    let count = 0;
+    btn.addEventListener('click', () =>{
+        count++;
+        console.log('클릭 횟수:'+count);
+    })
+
+    // 4번
+    // 배열로 전달된 장바구니 가격 목록의 합계를 반환하는 
+    // getTotal(cart) 함수를 
+    // console.log(getTotal([1000, 2000, 3000]))
+       let getTotal = (cart) => {
+           let sum = 0;
+           for(let i=0; i<cart.length; i++){
+              sum += cart[i];
+           }
+           return sum; //반환
+       }
+       console.log(getTotal([1000,2000,3000]))
+    // 5번
+    // 사용자가 입력한 비밀번호가 8자 이상인지 검사하는 함
+    // console.log(validatePassword("1234"));     
+    //  "1234" => 문자 => 문자(x) => String =>오브젝트 배열
+    
+    // let validatePassword = (pw) => pw.length >= 8
+    let validatePassword = (pw) => {
+         if( pw.length >= 8 ) {
+            return true // 논리 값
+         }else{
+            return false //논리값
+         } 
+    }
+    console.log(validatePassword('1234')) // false
+    console.log(validatePassword('12345648')) //true
+
+    // 6번
+    // 버튼을 누르면 현재 시간을 콘솔에 출력하는 코드를 
+    let btn2 = document.getElementById('btn2')
+    btn2.addEventListener('click', () => {
+        // new Date() 생성
+        let now = new Date()
+        console.log('현재시간:'+now.toLocaleDateString())
+        // 현재시간:2025. 9. 30. 오후 3:16:46 : toLocaleString()
+        // 현재시간:2025. 9. 30. : toLocaleDateString()
+    })
+    </script>
+    
+    
+</body>
+</html>
