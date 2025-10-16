@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 이미지 만들기</title>
+    <style>
+        .slide{
+            width: 900px;
+            /* margin:  100px auto; */
+            display: flex;
+            /* gap: 10px; */
+            /* justify-content: center; */
+            border:1px solid red;
+            /* flex-shrink: 0; */
+            position: relative;
+        }
+        .slide img{
+            width: 50%;
+            object-fit: cover; /* 비율유지하면서 꽉채우기*/
+            /* display: block; */
+        }
+        .slide img:hover + p{
+          opacity: 1;
+          visibility: visible;
+           
+        }
+        .slide p{
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+           left : 50%;
+           top: 50%;
+           transform: translate(-50%,-50%);
+           color: white;
+           transition: opacity 0.5s;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- 부모 div를 flex로 css를 주면 자식인 img태그 2개가
+         사이즈를 정확하게 인식을 못하는 문제 발생
+         그래서 CSS는 아래와 같이 정의 하는게 좋음
+          .slide{
+            width: 900px;
+            display: flex;
+            border:1px solid red;
+            /* flex-shrink: 0; */
+            position: relative;
+        }
+        .slide img{
+            width: 50%;
+            object-fit: cover; /* 비율유지하면서 꽉채우기*/
+        }
+    -->
+    <div class="slide">
+        <!-- <img src="img/pic_1.jpg" alt="슬라이드 이미지" /> -->
+        <img src="img/pic_2.jpg" alt="슬라이드 이미지" />
+        <p class="hover">슬라이드 이미지야1</p>
+    </div>
+</body>
+</html>
