@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실전문제</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background-color: #f9f9f9;
+      }
+      label {
+        cursor: pointer;
+        font-size: 16px;
+      }
+      ul {
+        list-style: none;
+        padding-left: 20px;
+      }
+      li {
+        margin: 5px 0;
+      }
+      /* input[type='checkbox'] {
+        transform: scale(1.2);
+        margin-right: 5px;
+        cursor: pointer;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- 문제4: #checkAll, .item-check -->
+    <label><input type="checkbox" id="checkAll" /> 전체 선택</label>
+    <ul>
+      <li>
+        <label><input type="checkbox" class="item-check" /> 항목 A</label>
+      </li>
+      <li>
+        <label><input type="checkbox" class="item-check" /> 항목 B</label>
+      </li>
+      <li>
+        <label><input type="checkbox" class="item-check" /> 항목 C</label>
+      </li>
+    </ul>
+
+    <script>
+      // 전체선택 checkbox 클릭하면 아래 checkbox 모두 체크되도록 
+      let checkAll = document.getElementById('checkAll')
+      let item = document.querySelectorAll('.item-check');
+      // change checkAll이 변경되는 사건이 일어나면
+      checkAll.addEventListener('change', () => {
+        // 체크를 해서 변경되는 사건이 일어나면
+        // item의 모든 checkbox의 체크가 checked로 지정되어야 함
+        // 현재 item의 개수는 3개
+        for(let i=0; i<item.length; i++){
+            // input의 첫 번째 = checked지정
+            // <input type="checkbox" class="item-check" checked />
+            //  체크된 상태에서 다시 체크를 해제하면 
+            // <input type="checkbox" class="item-check"  />
+            item[i].checked = checkAll.checked;
+        }
+      })
+    </script>
+  </body>
+</html>

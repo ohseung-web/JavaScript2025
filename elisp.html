@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파비콘</title>
+    <head>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+</head>
+
+    <style>
+        .ellipsis {
+        width: 300px;             /* 영역 너비 필수 */
+        white-space: nowrap;      /* 줄바꿈 안함 */
+        overflow: hidden;         /* 넘친 글자 숨김 */
+        text-overflow: ellipsis;  /* ... 표시 */
+        }
+        .multi-cut {
+  width: 300px;
+  line-height: 1.5em;
+  max-height: 4.5em;      /* 3줄까지만 보이게 */
+  overflow: hidden;
+  position: relative;
+}
+
+.multi-cut::after {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-left: 20px;
+  background: linear-gradient(to right, transparent, white 50%);
+}
+.real-ellipsis {
+  width: 300px;
+  line-height: 1.5em;
+  overflow: hidden;
+}
+.multi-line-ellipsis {
+  display: -webkit-box; /* 웹킷 기반 브라우저용 속성 */
+  -webkit-box-orient: vertical; /* 텍스트를 세로로 정렬 */
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  text-overflow: ellipsis; /* 말줄임표(...) 표시 */
+  -webkit-line-clamp: 4; /* 최대 3줄까지만 표시 (원하는 줄 수로 변경) */
+}
+    </style>
+</head>
+<body>
+    <p class="ellipsis">
+       이 문장은 너무 길어서 한 줄만 보여주고 나머지는 ... 으로 표시됩니다.
+       이 문장은 너무 길어서 한 줄만 보여주고 나머지는 ... 으로 표시됩니다.
+       이 문장은 너무 길어서 한 줄만 보여주고 나머지는 ... 으로 표시됩니다.
+       이 문장은 너무 길어서 한 줄만 보여주고 나머지는 ... 으로 표시됩니다.
+    </p>
+    <p class="multi-cut">
+  여러 줄의 문장이 이렇게 존재할 때,
+  마지막 줄이 넘치면 자연스럽게 잘리는 효과를 만들 수 있습니다.
+  완벽한 줄임표는 아니지만 시각적으로 충분히 비슷하게 보입니다.
+</p>
+<p class="real-ellipsis">
+  이 방식은 텍스트가 실제로 줄을 넘어서면 JS가 감지해서
+  자동으로 ...으로 바꿔주는 완전한 말줄임입니다.
+</p>
+<p class="multi-line-ellipsis">
+  이것은 여러 줄의 텍스트입니다. 만약 이 텍스트가 지정된 줄 수(예: 3줄)를 넘어가게 되면, 마지막 줄에 말줄임표(...)가 표시됩니다. CSS 속성을 통해 텍스트의 양에 따라 자동으로 줄 바꿈이 적용되고, 넘치는 부분을 숨기면서 말줄임표로 처리합니다.
+  이것은 여러 줄의 텍스트입니다. 만약 이 텍스트가 지정된 줄 수(예: 3줄)를 넘어가게 되면, 마지막 줄에 말줄임표(...)가 표시됩니다. CSS 속성을 통해 텍스트의 양에 따라 자동으로 줄 바꿈이 적용되고, 넘치는 부분을 숨기면서 말줄임표로 처리합니다.
+  이것은 여러 줄의 텍스트입니다. 만약 이 텍스트가 지정된 줄 수(예: 3줄)를 넘어가게 되면, 마지막 줄에 말줄임표(...)가 표시됩니다. CSS 속성을 통해 텍스트의 양에 따라 자동으로 줄 바꿈이 적용되고, 넘치는 부분을 숨기면서 말줄임표로 처리합니다.
+</p>
+</body>
+</html>

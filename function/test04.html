@@ -182,20 +182,24 @@
 
          })
       }
-      // 상세보기 : toggle()
+      // 상세보기 
         let detail = document.querySelector('#detail');
         let view = document.querySelector('#view');
 
         // #detail.style.display는 **자바스크립트 입장에선 "빈 문자열" ("")**입니다.
         // 그래서 반드시 빈문자열도 detail.style.display === ''읽어라를 조건에 추가해야 한다.
         // 아니면 toggle를 사용하는 것이 편하다.
-        view.addEventListener('click', function () {
-            if(detail.style.display === 'none' || detail.style.display === ''){
-                detail.style.display = 'block';
-            }else{
-                detail.style.display = 'none';
-            }
-          //  detail.classList.toggle('active');
+        // view.addEventListener('click', function () {
+        //     if(detail.style.display === 'none' || detail.style.display === ''){
+        //         detail.style.display = 'block';
+        //     }else{
+        //         detail.style.display = 'none';
+        //     }
+        // })
+
+        // toggle() 이용 상세보기
+        view.addEventListener('click', ()=>{
+             detail.classList.toggle('active');
         })
     </script>
   </body>

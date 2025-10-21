@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돌아가는 이미지 슬라이드</title>
+    <style>
+        .slider {
+        width: 300px;
+        overflow: hidden;
+        }
+        /* .slides {
+        display: flex;
+        transition: transform 0.5s ease;
+        } */
+        /* .slides img {
+        width: 300px;
+        }
+        .slider {
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+        } */
+
+
+        .slides img {
+        width: 300px;
+        }
+        .slides {
+         display: flex;
+         position: fixed; 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+     
+        /* opacity: 1; */
+        transition: opacity 0.5s ease; /* 부드러운 전환 효과 */
+        }
+        /* .slides img{
+            position: absolute;
+            left : 30px;
+            top : 30px;
+        }
+        .slides img.active{
+            transform: translateY(500px);
+        } */
+
+        .slides img {
+        border-radius: 5px;
+        overflow: hidden;
+        width: 300px;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        transition: transform 1s ease; /* 부드러운 이동 */
+        }
+
+        .slides img.active {
+        transform: translateY(100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+            <img src="./Others/img/pic_1.jpg" alt="">
+            <!-- <img src="./Others/img/pic_2.jpg" alt=""> -->
+            <!-- <img src="./Others/img/pic_3.jpg" alt=""> -->
+            <!-- 첫 번째 이미지 복제본 -->
+            <!-- <img src="./Others/img/pic_1.jpg" alt=""> -->
+        </div>
+   </div>
+  <script>
+        let slides = document.querySelector(".slides");
+        let slideImages = document.querySelectorAll(".slides img");
+        let slideImg = document.querySelector(".slides img");
+        let index = 0;
+
+    
+        // function slideshow(){
+        //         ++index;
+        //         console.log(`index : ${index}`)
+        //         // 페이드 아웃
+        //          slideImg.style.opacity = 0;
+        //       setTimeout(() => {
+        //          if(index != 6 ){
+        //            slideImg.src=`./Others/img/pic_${index}.jpg`;
+        //            slideImg.style.opacity = 1;
+        //         }else{
+        //             index = 0;
+        //             return;
+        //         }
+        //         // index++;
+        //         // index = 0;
+        //         console.log(`이미지 : ${slideImg.src}, ${index}`)
+        //       },800)   
+                
+        // }
+    
+        
+        // function moveSlide() {
+        // index++;
+        // slides.style.transition = "transform 0.5s ease";
+        // slides.style.transform = `translateX(-${index * 300}px)`; // 300은 이미지 너비
+
+        // // 마지막 복제 이미지까지 이동했을 때
+        // if (index === 5) {
+        //     setTimeout(() => {
+        //     slides.style.transition = "none"; // 애니메이션 끄기
+        //     slides.style.transform = "translateX(0)"; // 처음으로 순간 이동
+        //     index = 0;
+        //     }, 500); // transition 시간과 같게
+        // }
+        // }
+        
+        // setInterval(moveSlide, 3000);
+
+        // 아래, 위 이미지 위에서 아래로 올라오는 기능 구현
+        function aniImg(){
+            setInterval(() => {
+               slideImg.classList.toggle('active');
+            }, 2000);
+        }
+        aniImg();
+  </script>
+</body>
+</html>

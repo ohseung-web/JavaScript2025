@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실전문제</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background-color: #f9f9f9;
+      }
+      label {
+        cursor: pointer;
+        font-size: 16px;
+      }
+      ul {
+        list-style: none;
+        padding-left: 20px;
+      }
+      li {
+        margin: 5px 0;
+      }
+      input[type='checkbox'] {
+        transform: scale(1.2);
+        margin-right: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 문제4: #checkAll, .item-check -->
+    <label><input type="checkbox" id="checkAll" /> 전체 선택</label>
+    <ul>
+      <li>
+        <label><input type="checkbox" class="item-check" /> 항목 A</label>
+      </li>
+      <li>
+        <label><input type="checkbox" class="item-check" /> 항목 B</label>
+      </li>
+      <li>
+        <label><input type="checkbox" class="item-check" /> 항목 C</label>
+      </li>
+    </ul>
+
+    <script>
+      const checkAll = document.getElementById('checkAll');
+      // 여기서는 class가 'item-check'인 모든 체크박스를 가져옴.
+      // 반환된 NodeList는 유사 배열이므로 인덱스로 접근 가능하고 length 프로퍼티가 있음.
+      const items = document.querySelectorAll('.item-check');
+
+      // 전체 선택
+      // 전체 선택 체크박스의 상태(change 이벤트)가 바뀔 때 실행되는 콜백을 등록
+      checkAll.addEventListener('change', () => {
+        for (let i = 0; i < items.length; i++) {
+            // 각 항목의 체크 상태를 전체선택 체크박스와 동일하게 맞춤
+          items[i].checked = checkAll.checked;
+        }
+      });
+
+      // 개별 체크
+      // 각 항목에 change 이벤트 리스너를 등록해서 개별 체크 변경을 감지
+      for (let i = 0; i < items.length; i++) {
+
+        items[i].addEventListener('change', () => {
+          let allChecked = true; // 모두 체크되었는지 확인
+
+          // 모든 항목을 순회하면서 하나라도 체크가 풀려있으면 allChecked를 false로 바꿈
+          for (let j = 0; j < items.length; j++) {
+            if (!items[j].checked) {
+                // items[j].checked가 false면 '모두 체크'가 아니므로 플래그를 꺼주고 반복 종료
+              allChecked = false;
+              break; // 하나라도 체크 안 되어 있으면 바로 종료
+            }
+          }
+          
+           // 전체선택 체크박스의 checked 상태를 allChecked값으로 설정
+           // -> 모든 항목이 체크되어 있으면 전체선택도 체크, 아니면 해제
+          checkAll.checked = allChecked;
+
+        });
+      }
+
+     
+    </script>
+  </body>
+</html>
